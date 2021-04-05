@@ -369,7 +369,9 @@ function StaffGradedAssignmentXBlock(runtime, element) {
             $(element).find('#download-init-button').removeClass("disabled");
             $(element).find('.task-message')
               .show()
-              .html(gettext("Student submission file ready for download"))
+              .html(gettext(
+                "Student submission file ready for download, Please click the button again to start downloading."
+                ))
               .removeClass("preparing-msg")
               .addClass("ready-msg");
           }).fail(function() {
