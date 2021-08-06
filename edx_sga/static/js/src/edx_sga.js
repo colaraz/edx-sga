@@ -34,16 +34,18 @@ function StaffGradedAssignmentXBlock(runtime, element) {
             var content = $(element).find('#sga-content').html(template(state));
 
             $(content).find('.finalize-upload').on('click', function() {
-              $.post(finalizeUploadUrl).success(
+              if (confirm('Are you sure you want to submit this file?')) {
+                $.post(finalizeUploadUrl).success(
                   function (state) {
-                      render(state);
-                  }
-              ).fail(
+                  render(state);
+                }
+                ).fail(
                   function () {
-                      state.error = gettext('Submission failed. Please contact your course instructor.');
-                      render(state);
+                    state.error = gettext('Submission failed. Please contact your course instructor.');
+                    render(state);
                   }
-              );
+                );
+              }
             });
 
             // Set up file upload
