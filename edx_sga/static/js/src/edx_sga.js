@@ -41,7 +41,7 @@ function StaffGradedAssignmentXBlock(runtime, element) {
                   modal: true,
                   open: function(){
                     $(".ui-dialog-titlebar").addClass("confirm-dialog-title-bar");
-                    $(".ui-dialog-content.ui-widget-content").html("Are you sure that you are submitting the correct file at this time? Because once it\'s submitted you will not be able to change it later.");
+                    $(".ui-dialog-content.ui-widget-content").html("Are you sure that you are submitting the correct file at this time? Because once it's submitted you will not be able to change it later.");
                   },
                   buttons: {
                     "Yes": function() {
