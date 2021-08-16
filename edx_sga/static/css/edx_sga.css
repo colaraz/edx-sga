@@ -129,3 +129,22 @@
 .staff-modal .preparing-msg {
   color: red;
 }
+
+.ui-dialog-titlebar .ui-dialog-titlebar-close {
+  display: none;
+}
+
+.confirm-dialog-title-bar {
+    background: #A6C854;
+    border: none;
+}
+
+.ui-widget-overlay {
+    z-index: 3;
+    position: fixed;
+}
+
+.ui-dialog.ui-widget{
+    z-index: 5;
+    width: 600px !important;
+}

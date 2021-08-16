@@ -34,18 +34,35 @@ function StaffGradedAssignmentXBlock(runtime, element) {
             var content = $(element).find('#sga-content').html(template(state));
 
             $(content).find('.finalize-upload').on('click', function() {
-              if (confirm('Are you sure you want to submit this file?')) {
-                $.post(finalizeUploadUrl).success(
-                  function (state) {
-                  render(state);
-                }
-                ).fail(
-                  function () {
-                    state.error = gettext('Submission failed. Please contact your course instructor.');
-                    render(state);
+
+              $( function() {
+                $( "#dialog-confirm" ).dialog({
+                  resizable: false,
+                  modal: true,
+                  open: function(){
+                    $(".ui-dialog-titlebar").addClass("confirm-dialog-title-bar");
+                    $(".ui-dialog-content.ui-widget-content").html("Are you sure that you are submitting the correct file at this time? Because once it's submitted you will not be able to change it later.");
+                  },
+                  buttons: {
+                    "Yes": function() {
+                      $( this ).dialog( "close" );
+                      $.post(finalizeUploadUrl).success(
+                        function (state) {
+                        render(state);
+                      }
+                      ).fail(
+                        function () {
+                          state.error = gettext('Submission failed. Please contact your course instructor.');
+                          render(state);
+                        }
+                      );
+                    },
+                    "No": function() {
+                      $( this ).dialog( "close" );
+                    }
                   }
-                );
-              }
+                });
+              } );
             });
 
             // Set up file upload
