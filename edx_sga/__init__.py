@@ -2,4 +2,4 @@
 Module for StaffGradedAssignmentXBlock.
 """
 
-__version__ = 'col-v1.2'
+__version__ = 'col-v1.3'
