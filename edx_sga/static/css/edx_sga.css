@@ -135,8 +135,11 @@
 }
 
 .confirm-dialog-title-bar {
-    background: #A6C854;
-    border: none;
+    display: none;
+}
+
+#dialog-confirm {
+    line-height: 20px;
 }
 
 .ui-widget-overlay {

@@ -35,10 +35,11 @@
             <% } %>
             <% if (annotated) { %>
               <b>{% trans "Annotated file from instructor" %}</b>
-              <a href="<%= annotatedUrl %>"><%= annotated.filename %></a><br/>
+              <a href="<%= annotatedUrl %>"><%= annotated.filename %></a>
             <% } %>
           <% } else if (uploaded) { %>
-            {% trans "This assignment has not yet been graded." %}
+            {% trans "Please review if you have uploaded the correct file. You can change the file by uploading another file above." %}<br/>
+            {% trans "Clicking the 'Submit' button will instantly submit your assignment for grading purposes and you won't be able to change the file after submitting." %}
           <% } %>
         </p>
         <% if (upload_allowed) { %>
